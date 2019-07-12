@@ -1,1 +1,0 @@
-//tsc requires a .ts file in the same directory as config. this is an alternative to having all configs in the root directory.
