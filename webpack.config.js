@@ -9,6 +9,12 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   devtool: 'source-map',
+  devServer: {
+    contentBase: './dist',
+    host: 'localhost', 
+    port: 8081,
+    historyApiFallback: true
+  },
   resolve: {
     extensions: ['ts', '.tsx']
   },
