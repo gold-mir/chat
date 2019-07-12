@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './src/client/index.ts',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -21,7 +21,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/client/index.html',
       inject: 'body'
     }),
     new CleanWebpackPlugin()
