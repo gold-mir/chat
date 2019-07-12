@@ -1,0 +1,5 @@
+function sayHi(name: string){
+  return `Hello ${name}`
+}
+
+sayHi('Miranda')
