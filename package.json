@@ -4,8 +4,12 @@
   "description": "wip",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode development",
-    "start:client": "webpack-dev-server"
+    "build:client": "rm -rf dist/client; webpack --mode development",
+    "start:client": "webpack-dev-server",
+    "build:server": "rm -rf dist/server; tsc -p server.tsconfig.json",
+    "start:server": "npm run build:server; node dist/server/server.js",
+    "build": "npm run build:server; npm run build:client",
+    "start": "npm run build:client; npm run start:server"
   },
   "author": "",
   "license": "ISC",

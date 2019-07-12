@@ -6,6 +6,6 @@
     "sourceMap": true
   },
   "include": [
-    "src/server/*.ts"
+    "src/server/server.ts"
   ]
 }
