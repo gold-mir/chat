@@ -16,7 +16,8 @@ module.exports = {
     historyApiFallback: true
   },
   resolve: {
-    extensions: ['ts', '.tsx']
+    modules: ['src', 'node_modules'],
+    extensions: ['ts', '.tsx', '.js']
   },
   plugins: [
     new HtmlWebpackPlugin({
