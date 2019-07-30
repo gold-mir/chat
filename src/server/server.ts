@@ -1,8 +1,5 @@
-import { thing } from './things/thing'
-
-function sayHi(name: String){
+function sayHi(name: string): string{
   return `Hi ${name}`
 }
 
-console.log(sayHi('Miranda'))
-console.log(thing())
+console.log(sayHi('Mir'))
