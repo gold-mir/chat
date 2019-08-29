@@ -11,12 +11,12 @@
     "prestart": "eslint src/**/*.{ts,tsx}",
     "buildclient": "rm -rf dist/client; webpack --mode development",
     "prebuildclient": "eslint src/client/**/*.{ts,tsx}",
-    "startclient": "webpack-dev-server",
-    "prestartclient": "eslint src/client/**/*.{ts,tsx}",
+    "client": "webpack-dev-server",
+    "preclient": "eslint src/client/**/*.{ts,tsx}",
     "buildserver": "rm -rf dist/server; tsc -p server.tsconfig.json",
     "prebuildserver": "eslint src/server/**/*.ts",
-    "startserver": "ts-node-dev --respawn --transpileOnly ./src/server/server.ts",
-    "prestartserver": "eslint src/server/**/*.ts"
+    "server": "ts-node-dev --respawn --transpileOnly ./src/server/server.ts",
+    "preserver": "eslint src/server/**/*.ts"
   },
   "author": "",
   "license": "ISC",
@@ -37,6 +37,9 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "pg-promise": "^9.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }
