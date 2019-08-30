@@ -1,5 +1,6 @@
-function sayHi(name: string): string{
-  return `Hi ${name}`
-}
+import * as express from 'express';
+import app from './app';
 
-console.log(sayHi('Mir'))
+const server = app.listen(3000, (): void => {
+  console.log('started app on port 3000')
+})
