@@ -12,5 +12,10 @@ export function setupChat(io: SocketIO.Server): void{
       socket.broadcast.emit('message', data)
       console.log(data)
     })
+
+    console.log(`Socket ${socket.id} connected`)
+    socket.on('disconnect', (): void => {
+      console.log(`Socket ${socket.id} disconnected`)
+    })
   })
 }
