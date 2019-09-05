@@ -1,15 +1,18 @@
 import * as React from 'react';
 import * as IO from 'socket.io-client'
+import Chatbox from './chatbox';
 
 type State = {
   connected: boolean;
+  messages: string[];
 }
 
 export default class Chat extends React.Component<{}, State> {
   public constructor(props: {}) {
     super(props)
     this.state = {
-      connected: false
+      connected: false,
+      messages: []
     }
   }
 
@@ -26,6 +29,12 @@ export default class Chat extends React.Component<{}, State> {
     this.io = io;
   }
 
+  private handleMessage = (message: string): void => {
+    this.setState((state: State): {} => {
+      return {messages: [...state.messages, message]};
+    })
+  }
+
   private io: SocketIOClient.Socket;
 
   public render(): JSX.Element {
@@ -33,8 +42,16 @@ export default class Chat extends React.Component<{}, State> {
       <React.Fragment>
         <h5>This is the chat component</h5>
 
-        <p>{this.state.connected ? "Connected" : "Not Connected"}</p>
+        <ul>
+          {
+            this.state.messages.map((message, index): JSX.Element => {
+              return <li key={index}>{message}</li>
+            })
+          }
+        </ul>
 
+        <p>{this.state.connected ? "Connected" : "Not Connected"}</p>
+        <Chatbox enabled={true} onSubmit={this.handleMessage}/>
       </React.Fragment>
 
     )
