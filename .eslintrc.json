@@ -9,6 +9,7 @@
   ],
   "rules": {
     "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/prefer-interface": 0,
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1
   }
