@@ -9,7 +9,7 @@ export function createIO(server: http.Server): SocketIO.Server{
 export function setupChat(io: SocketIO.Server): void{
   io.on('connection', (socket: SocketIO.Socket): void => {
     socket.on('message', (data: any): void => {
-      socket.broadcast.emit('message', data)
+      socket.emit('message', data)
       console.log(data)
     })
 

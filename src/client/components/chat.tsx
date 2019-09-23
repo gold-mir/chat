@@ -26,12 +26,21 @@ export default class Chat extends React.Component<{}, State> {
       this.setState({ connected: false })
     })
 
+    io.on('message', (data: string): void => {
+      console.log(`Received message ${data}`);
+      this.receiveMessage(data);
+    })
+
     this.io = io;
   }
 
   private handleMessage = (message: string): void => {
+    this.io.emit('message', message)
+  }
+
+  private receiveMessage = (message: string): void => {
     this.setState((state: State): {} => {
-      return {messages: [...state.messages, message]};
+      return {messages: [...state.messages, message]}
     })
   }
 
@@ -51,7 +60,7 @@ export default class Chat extends React.Component<{}, State> {
         </ul>
 
         <p>{this.state.connected ? "Connected" : "Not Connected"}</p>
-        <Chatbox enabled={true} onSubmit={this.handleMessage}/>
+        <Chatbox enabled={this.state.connected} onSubmit={this.handleMessage}/>
       </React.Fragment>
 
     )
